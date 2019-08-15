@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Entities/Character.gd" type="Script" id=1]
+[ext_resource path="res://Assets/textures/Gunslinger sprite.png" type="Texture" id=2]
+[ext_resource path="res://Assets/textures/shadow.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8.48868, 3.55396 )
+
+[node name="Character" type="KinematicBody2D"]
+script = ExtResource( 1 )
+DEF_SPEED = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 23 )
+shape = SubResource( 1 )
+
+[node name="Weapons" type="Node" parent="."]
+
+[node name="Character" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Shadow" type="Sprite" parent="Character"]
+position = Vector2( 0, 24 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
