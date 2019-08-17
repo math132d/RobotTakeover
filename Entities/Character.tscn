@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Entities/Character.gd" type="Script" id=1]
 [ext_resource path="res://Assets/textures/shadow.png" type="Texture" id=2]
@@ -28,6 +28,40 @@ tracks/0/keys = {
 "values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=4]
+resource_name = "WalkDown"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 10, 9 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "WalkUp"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 11, 12 ]
+}
+
 [node name="Character" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
@@ -52,10 +86,14 @@ texture = ExtResource( 2 )
 
 [node name="Character" parent="." instance=ExtResource( 3 )]
 texture = ExtResource( 4 )
+flip_h = true
 vframes = 3
 hframes = 5
+frame = 11
 
 [node name="AnimationPlayer" parent="Character" index="0"]
 anims/Damaged = SubResource( 3 )
+anims/WalkDown = SubResource( 4 )
+anims/WalkUp = SubResource( 5 )
 
 [editable path="Character"]

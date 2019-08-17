@@ -8,6 +8,8 @@ radius = 3.52673
 height = 36.9296
 
 [node name="Light robot" instance=ExtResource( 1 )]
+DEFAULT_SPEED = 100
+DEFAULT_FRICTION = 1.0
 
 [node name="Hitbox" parent="BulletDecetor" index="0"]
 position = Vector2( 0.142433, 2.64399 )
@@ -15,7 +17,6 @@ shape = SubResource( 1 )
 
 [node name="Character" parent="." index="4"]
 texture = ExtResource( 2 )
-flip_h = true
 frame = 2
 
 [editable path="Character"]

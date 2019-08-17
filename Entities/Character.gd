@@ -5,6 +5,7 @@ enum {UP, DOWN, LEFT, RIGHT}
 #Export all "default values" not to be modified during runtime
 export (int) var DEFAULT_SPEED = 20
 export (int) var DEFAULT_HEALTH = 100
+export (float) var DEFAULT_FRICTION = 2
 export (PackedScene) var active_weapon
 
 #Apply default values to modyfiable vars
@@ -23,14 +24,17 @@ func _process(delta):
 	
 	move_and_slide(move_vec)
 	
-	#move_vec *= 0.99*delta
+	move_vec -= move_vec.normalized()*DEFAULT_FRICTION
+	
+	if move_vec.length() < 2:
+		move_vec = Vector2(0,0)
 	
 func _on_bullet_hit(body):
 	
+	body.hit(self)
 	print("ouch")
-	$Character/AnimationPlayer.play("Damaged")
 	
-	pass # Replace with function body.
+	pass
 	
 func vec_to_direction(vector:Vector2):
 	#Function to determine caresian direction from a vector.
@@ -54,11 +58,14 @@ func move(direction):
 	
 	#Play the appropriate animation
 	match self.facing:
+		UP:
+			$Character/AnimationPlayer.play("WalkUp")
+		DOWN:
+			$Character/AnimationPlayer.play("WalkDown")
 		LEFT:
 			$Character/AnimationPlayer.play("WalkLeft")
 		RIGHT:
 			$Character/AnimationPlayer.play("WalkRight")
-	
 	
 	pass
 	
