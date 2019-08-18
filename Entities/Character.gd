@@ -8,7 +8,7 @@ export (int) var DEFAULT_HEALTH = 100
 export (float) var DEFAULT_FRICTION = 2
 export (PackedScene) var active_weapon
 
-#Apply default values to modyfiable vars
+#Apply default values to modifyable vars
 onready var health = DEFAULT_HEALTH
 onready var speed = DEFAULT_SPEED
 
@@ -28,35 +28,31 @@ func _process(delta):
 	
 	if move_vec.length() < 2:
 		move_vec = Vector2(0,0)
+		
+func _on_BulletDetecetor_entered(body):
+	bullet_hit(body)
 	
-func _on_bullet_hit(body):
-	
-	body.hit(self)
-	print("ouch")
-	
-	pass
-	
-func vec_to_direction(vector:Vector2):
+func direction_to_facing(vector:Vector2):
 	#Function to determine caresian direction from a vector.
 	#Returns Direction Enum
 	
-	var direction = DOWN
+	var facing = DOWN
 	
 	if abs(vector.x) > abs(vector.y):
-		direction = LEFT if vector.x < 0 else RIGHT
+		facing = LEFT if vector.x < 0 else RIGHT
 	else:
-		direction = UP if vector.y < 0 else DOWN
+		facing = UP if vector.y < 0 else DOWN
 		
-	return direction
+	return facing
 
 func move(direction):
 	
 	direction = direction.normalized()
 	accl_vec = direction*speed
 	
-	self.facing = vec_to_direction(direction)
+	self.facing = direction_to_facing(direction)
 	
-	#Play the appropriate animation
+	#Plays the appropriate animation
 	match self.facing:
 		UP:
 			$Character/AnimationPlayer.play("WalkUp")
@@ -66,6 +62,13 @@ func move(direction):
 			$Character/AnimationPlayer.play("WalkLeft")
 		RIGHT:
 			$Character/AnimationPlayer.play("WalkRight")
+	
+	pass
+	
+func bullet_hit(body):
+	
+	body.do_collision()
+	$Character/AnimationPlayer.play("Damaged")
 	
 	pass
 	
