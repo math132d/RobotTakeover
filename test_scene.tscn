@@ -1,12 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Node2D.gd" type="Script" id=1]
 [ext_resource path="res://Weapons/bullets/Bullet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Entities/Light Robot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Static Elements/Obstacle.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Entities/Character.tscn" type="PackedScene" id=4]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 74.1098, 68.3983 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -14,31 +11,25 @@ BULLET = ExtResource( 2 )
 
 [node name="YSort" type="YSort" parent="."]
 
-[node name="Light robot" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 236.551, 86.4083 )
+[node name="Obstacle" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 328.63, 282.61 )
+scale = Vector2( 3, 3 )
 
-[node name="Light robot2" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 315.205, 115.812 )
+[node name="Obstacle2" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 758.339, 342.769 )
+scale = Vector2( 3, 3 )
 
-[node name="Light robot3" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 215.233, 164.328 )
+[node name="Obstacle3" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 455.087, 447.127 )
+scale = Vector2( 3, 3 )
 
-[node name="Light robot4" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 325.497, 176.825 )
-
-[node name="Light robot5" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 165.982, 128.309 )
-
-[node name="Light robot6" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 427.674, 71.7065 )
+[node name="Obstacle4" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 948.638, 301.026 )
+scale = Vector2( 3, 3 )
 
 [node name="Character" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 280.07, 128.641 )
-DEFAULT_SPEED = 100
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 490.89, 325.398 )
-shape = SubResource( 1 )
+position = Vector2( 591.546, 326.88 )
+scale = Vector2( 3, 3 )
+DEFAULT_ACCL_SPEED = 800
+DEFAULT_FRICTION = 500.0
+DEFAULT_MAX_SPEED = 200
