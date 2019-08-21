@@ -4,15 +4,15 @@
 [ext_resource path="res://Assets/textures/Light Robot sprite.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 3.52673
-height = 36.9296
+radius = 3.30264
+height = 39.1262
 
 [node name="Light robot" instance=ExtResource( 1 )]
 DEFAULT_SPEED = 100
 DEFAULT_FRICTION = 1.0
 
-[node name="Hitbox" parent="BulletDecetor" index="0"]
-position = Vector2( 0.142433, 2.64399 )
+[node name="Hitbox" parent="BulletDetecetor" index="0"]
+position = Vector2( 0.142399, -21.1628 )
 shape = SubResource( 1 )
 
 [node name="Character" parent="." index="4"]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Light Robot sprite.png-e4c3c6f60f5219a0befdd4f8a2d387e3.stex"
+path="res://.import/spritesheet_max.png-20c877a95c671791d807d8831106a6a8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/textures/Light Robot sprite.png"
-dest_files=[ "res://.import/Light Robot sprite.png-e4c3c6f60f5219a0befdd4f8a2d387e3.stex" ]
+source_file="res://Assets/textures/spritesheet_max.png"
+dest_files=[ "res://.import/spritesheet_max.png-20c877a95c671791d807d8831106a6a8.stex" ]
 
 [params]
 

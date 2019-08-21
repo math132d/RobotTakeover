@@ -13,3 +13,6 @@ func fire(direction):
 		var bullet = BULLET.instance()
 		
 		get_tree().get_root().add_child(bullet)
+		return true
+	else:
+		return false

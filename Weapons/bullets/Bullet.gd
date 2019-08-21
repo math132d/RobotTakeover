@@ -14,8 +14,8 @@ func _process(delta):
 	var collision = move_and_collide(direction*delta)
 	
 	if collision:
-		do_collision(collision)
-		
-func do_collision(collision):
+		do_collision()
+
+func do_collision():
 	queue_free()
 	pass
