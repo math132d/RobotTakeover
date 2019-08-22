@@ -1,22 +1,25 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Entities/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/textures/Light Robot sprite.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 3.30264
-height = 39.1262
+radius = 4.50629
+height = 31.5379
 
-[node name="Light robot" instance=ExtResource( 1 )]
-DEFAULT_SPEED = 100
+[sub_resource type="AnimationNodeStateMachinePlayback" id=2]
+
+[node name="LightRobot" index="0" instance=ExtResource( 1 )]
+position = Vector2( 157.37, 164.269 )
 DEFAULT_FRICTION = 1.0
 
 [node name="Hitbox" parent="BulletDetecetor" index="0"]
-position = Vector2( 0.142399, -21.1628 )
+position = Vector2( -1.08, -21.103 )
 shape = SubResource( 1 )
 
 [node name="Character" parent="." index="4"]
 texture = ExtResource( 2 )
-frame = 2
+vframes = 3
 
-[editable path="Character"]
+[node name="AnimationTree" parent="Character" index="1"]
+parameters/playback = SubResource( 2 )

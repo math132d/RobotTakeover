@@ -278,6 +278,9 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+DEFAULT_ACCL_SPEED = 800
+DEFAULT_FRICTION = 500.0
+DEFAULT_MAX_SPEED = 200
 
 [node name="ObjectCollider" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
