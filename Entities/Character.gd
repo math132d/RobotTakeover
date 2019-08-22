@@ -23,6 +23,7 @@ var facing = DOWN
 var move_vec = Vector2(0,0)
 var accl_vec = Vector2(0,0)
 
+
 func _physics_process(delta):
 	
 	#This code adds acceleration to movement in a linear fashion

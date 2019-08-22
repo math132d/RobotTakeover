@@ -30,6 +30,3 @@ scale = Vector2( 3, 3 )
 [node name="Character" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 591.546, 326.88 )
 scale = Vector2( 3, 3 )
-DEFAULT_ACCL_SPEED = 800
-DEFAULT_FRICTION = 500.0
-DEFAULT_MAX_SPEED = 200

@@ -1,7 +1,6 @@
-extends Node
+extends "res://Entities/Character.gd"
 
 func _process(delta):
-	
 	var movement = Vector2(0,0)
 	
 	if Input.is_action_pressed("ui_up"):
@@ -14,5 +13,4 @@ func _process(delta):
 		movement += Vector2(1,0)
 	
 	if movement.length() > 0:
-		$YSort/AgressiveGuy.move(movement)
-	
+		move(movement)
