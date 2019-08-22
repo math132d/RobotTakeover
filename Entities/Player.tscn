@@ -6,6 +6,7 @@
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
 [node name="Player" instance=ExtResource( 1 )]
+position = Vector2( 78.211, 207.287 )
 script = ExtResource( 2 )
 DEFAULT_FRICTION = 700.0
 

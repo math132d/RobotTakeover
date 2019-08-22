@@ -1,6 +1,8 @@
 extends "res://Entities/Character.gd"
 
 func _process(delta):
+	
+	#moves the payer based on user input
 	var movement = Vector2(0,0)
 	
 	if Input.is_action_pressed("ui_up"):
