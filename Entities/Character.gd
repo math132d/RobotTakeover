@@ -45,7 +45,7 @@ func _physics_process(delta):
 	#Flip the sprite if facing right
 	if facing == RIGHT:
 		$Character.set_flip_h(true)
-	else:
+	if facing == LEFT:
 		$Character.set_flip_h(false)
 	
 	#Travels to the appropriate animation in the statemachine
@@ -93,8 +93,8 @@ func move(direction):
 	
 	accl_vec = direction.normalized()
 	
-	self.facing = direction_to_facing(move_vec.normalized())
-	
+	if move_vec.normalized() != Vector2(0,0):
+		self.facing = direction_to_facing(move_vec.normalized())
 	pass
 	
 func bullet_hit(body):
