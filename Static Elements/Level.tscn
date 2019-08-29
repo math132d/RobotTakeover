@@ -3,7 +3,7 @@
 [ext_resource path="res://Static Elements/Level.gd" type="Script" id=1]
 [ext_resource path="res://Static Elements/Room.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Entities/LightRobot.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entities/Robot.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Static Elements/Obstacle.tscn" type="PackedScene" id=5]
 
 [node name="Level" type="Node2D"]

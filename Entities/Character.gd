@@ -8,7 +8,7 @@ export (float) 	var DEFAULT_FRICTION   = 20  #Pixels subtracted from movement ve
 export (int) 	var DEFAULT_MAX_SPEED  = 60  #Max speed in pixels per second
 
 export (int) var DEFAULT_HEALTH = 100
-export (PackedScene) var active_weapon
+
 
 #Statemachine used to control animation
 onready var statemachine = $Character/AnimationTree.get("parameters/playback")

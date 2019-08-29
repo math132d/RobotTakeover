@@ -1,5 +1,6 @@
 extends "res://Entities/Character.gd"
 
+export (PackedScene) var active_weapon
 func _process(delta):
 	
 	#moves the payer based on user input
