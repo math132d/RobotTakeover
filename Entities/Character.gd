@@ -78,18 +78,18 @@ func direction_to_facing(vector:Vector2):
 	#Function to determine caresian direction from a vector.
 	#Returns Direction Enum
 	
-	var facing = DOWN
+	var facing
 	
 	#In case of diagonal movement we would rather have the side view then face-on
 	#Therefore the x-axis is weighed higher
-	if abs(vector.x * 2) > abs(vector.y):
+	if abs(vector.x) > abs(vector.y):
 		facing = LEFT if vector.x < 0 else RIGHT
 	else:
 		facing = UP if vector.y < 0 else DOWN
 		
 	return facing
 
-func move(direction):
+func move(direction:Vector2):
 	
 	accl_vec = direction.normalized()
 	

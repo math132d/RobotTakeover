@@ -3,7 +3,7 @@
 [ext_resource path="res://Node2D.gd" type="Script" id=1]
 [ext_resource path="res://Weapons/bullets/Bullet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Static Elements/Obstacle.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Entities/Character.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entities/AgressiveGuy.tscn" type="PackedScene" id=4]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -27,6 +27,5 @@ scale = Vector2( 3, 3 )
 position = Vector2( 948.638, 301.026 )
 scale = Vector2( 3, 3 )
 
-[node name="Character" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 591.546, 326.88 )
+[node name="AgressiveGuy" parent="YSort" instance=ExtResource( 4 )]
 scale = Vector2( 3, 3 )

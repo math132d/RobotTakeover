@@ -4,7 +4,7 @@ var Player #Holder for player charater
 var agro = 50 #agro int describes robot agressiveness in percent
 
 func _ready():
-	Player = get_node("/root/Level/YSort/Player") #finds player character in scene
+	Player = get_node("/root/Level/YSort/AgressiveGuy") #finds player character in scene
 
 func _process(delta):
 	

@@ -1,6 +1,13 @@
 extends "res://Entities/Character.gd"
 
 export (PackedScene) var active_weapon
+var WEAPON
+
+func _ready():
+	if active_weapon.can_instance():
+		WEAPON = active_weapon.instance()
+		get_node(".").add_child(WEAPON)
+
 func _process(delta):
 	
 	#moves the payer based on user input
@@ -17,3 +24,14 @@ func _process(delta):
 	
 	if movement.length() > 0:
 		move(movement)
+
+func _input(event):
+	if event is InputEventMouseButton:
+		WEAPON.fire(get_viewport().get_mouse_position(),get_position())
+
+func _physics_process(delta):
+	var fvek = get_viewport().get_mouse_position()-get_position()
+	facing = direction_to_facing(fvek.normalized())
+	print(direction_to_facing(fvek.normalized()))
+	print(fvek.normalized())
+	

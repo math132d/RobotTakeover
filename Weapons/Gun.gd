@@ -6,13 +6,16 @@ export (PackedScene) var BULLET
 func _ready():
 	$cooldown.wait_time = 1 / FIRE_SPEED
 	
-func fire(direction):
+func fire(direction, posistion):
 	if $cooldown.is_stopped():
 		$cooldown.start()
 		
 		var bullet = BULLET.instance()
-		
-		get_tree().get_root().add_child(bullet)
+		get_node(".").add_child(bullet)
+		bullet.init(posistion,direction)
 		return true
 	else:
 		return false
+func _input(event):
+	if event is InputEventMouseButton:
+		fire(get_viewport().get_mouse_position(),Vector2(0,0))

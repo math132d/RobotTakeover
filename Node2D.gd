@@ -19,4 +19,5 @@ func _process(delta):
 		movement += Vector2(1,0)
 	
 	if movement.length() > 0:
-		$YSort/Character.move(movement)
+		#$YSort/Character.move(movement)
+		pass
