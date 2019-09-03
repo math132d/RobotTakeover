@@ -2,6 +2,8 @@ extends "res://Entities/Character.gd"
 
 export (PackedScene) var active_weapon
 var WEAPON
+var FacingVec
+
 
 func _ready():
 	if active_weapon.can_instance():
@@ -27,11 +29,12 @@ func _process(delta):
 
 func _input(event):
 	if event is InputEventMouseButton:
-		WEAPON.fire(get_viewport().get_mouse_position(),get_position())
+		var BulletDisplacment
+		BulletDisplacment = Vector2(0,-20)+FacingVec.normalized()*30 #moves the bulletposistion so not to hit self
+		WEAPON.fire(FacingVec,(get_position()+BulletDisplacment))
+		
 
 func _physics_process(delta):
-	var fvek = get_viewport().get_mouse_position()-get_position()
-	facing = direction_to_facing(fvek.normalized())
-	print(direction_to_facing(fvek.normalized()))
-	print(fvek.normalized())
+	FacingVec = get_viewport().get_mouse_position()-get_position()
+	facing = direction_to_facing(FacingVec.normalized())
 	

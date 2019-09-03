@@ -10,7 +10,7 @@ height = 3.78391
 [node name="Bullet" type="KinematicBody2D"]
 collision_layer = 2
 script = ExtResource( 1 )
-SPEED = 1
+SPEED = 200
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )

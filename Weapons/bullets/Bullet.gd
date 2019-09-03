@@ -6,8 +6,8 @@ export (int) var SPEED = 20
 var direction = Vector2(0,0)
 
 func init(place, direction):
-	self.global_position = place
-	self.direction = direction.normalized()
+	direction = direction.normalized()
+	position = place
 	self.rotation = direction.angle() + PI/2
 	self.direction = direction * SPEED
 
@@ -19,6 +19,6 @@ func _process(delta):
 
 
 func do_collision():
-	#queue_free()
+	queue_free()
 	print("ow")
 	pass

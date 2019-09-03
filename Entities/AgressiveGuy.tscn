@@ -6,6 +6,7 @@
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
 [node name="AgressiveGuy" index="0" instance=ExtResource( 1 )]
+position = Vector2( 44.9943, 203.467 )
 active_weapon = ExtResource( 2 )
 
 [node name="AnimationTree" parent="Character" index="1"]
