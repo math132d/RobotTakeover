@@ -1,9 +1,10 @@
 [gd_scene load_steps=61 format=2]
 
-[ext_resource path="res://Entities/Players/Character.gd" type="Script" id=1]
+[ext_resource path="res://Entities/Character.gd" type="Script" id=1]
 [ext_resource path="res://Assets/textures/shadow.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Shaders/DirectionalBlur.shader" type="Shader" id=3]
 [ext_resource path="res://Assets/textures/spritesheet_max.png" type="Texture" id=4]
+
 
 
 [sub_resource type="CanvasItemMaterial" id=1]
