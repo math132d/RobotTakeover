@@ -1,14 +1,15 @@
 extends "res://Entities/Character.gd"
 
-export (PackedScene) var active_weapon
-var WEAPON
+var active_weapon
 var FacingVec
 
 
 func _ready():
-	if active_weapon.can_instance():
-		WEAPON = active_weapon.instance()
-		get_node(".").add_child(WEAPON)
+	
+	if $Weapons.get_child_count() > 0:
+		active_weapon = $Weapons.get_child(0)
+	else:
+		print("No weapons availible")
 
 func _process(delta):
 	
@@ -28,11 +29,13 @@ func _process(delta):
 		move(movement)
 		
 func attack(direction:Vector2):
-	.attack(direction)
-	
-	var BulletDisplacment
-	BulletDisplacment = Vector2(0,-20)+direction.normalized()*30 #moves the bulletposistion so not to hit self
-	WEAPON.fire(direction,(get_position()+BulletDisplacment))
+	if active_weapon.can_fire():
+		.attack(direction)
+		
+		var BulletDisplacment
+		
+		BulletDisplacment = Vector2(0,-20)+direction.normalized()*30 #moves the bulletposistion so not to hit self
+		active_weapon.fire(direction,(get_position()+BulletDisplacment))
 	
 
 func _input(event):
