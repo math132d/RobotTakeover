@@ -116,6 +116,8 @@ func attack(direction):
 			statemachine.start("AttackDown")
 		LEFT, RIGHT:
 			statemachine.start("AttackSide")
+			
+	
 #gets the position so it can be used by other nodes
 func get_position():
 	return position
