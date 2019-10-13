@@ -1,8 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Entities/Players/Weapons/Gun.gd" type="Script" id=1]
+[ext_resource path="res://Entities/Players/Weapons/Weapon.gd" type="Script" id=1]
 [ext_resource path="res://Entities/Players/Weapons/bullets/Bullet.tscn" type="PackedScene" id=2]
-
 
 [node name="Weapon" type="Node"]
 script = ExtResource( 1 )
@@ -10,3 +9,4 @@ BULLET = ExtResource( 2 )
 
 [node name="cooldown" type="Timer" parent="."]
 one_shot = true
+

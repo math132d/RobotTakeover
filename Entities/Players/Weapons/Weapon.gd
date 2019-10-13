@@ -16,3 +16,6 @@ func fire(direction, place):
 		return true
 	else:
 		return false
+
+func can_fire():
+	return $cooldown.is_stopped();
