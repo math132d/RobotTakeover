@@ -91,11 +91,8 @@ func direction_to_facing(vector:Vector2):
 func move(direction:Vector2):
 	accl_vec = direction.normalized()
 	
-func bullet_hit(body):
-	body.do_collision()
-	$Character/AnimationPlayer.play("Damaged")
-	
-	pass
+func bullet_hit(bullet):
+	bullet.do_collision()
 	
 func attack(direction:Vector2):
 	self.facing = direction_to_facing(direction.normalized())
@@ -108,7 +105,16 @@ func attack(direction:Vector2):
 		LEFT, RIGHT:
 			statemachine.start("AttackSide")
 			
-	
+
+func take_damage(damage:int):
+	self.health -= damage
+	$Character/AnimationPlayer.play("Damaged")
+	if(health <= 0):
+		on_death()
+
+func on_death():
+	queue_free()
+
 #gets the position so it can be used by other nodes
 func get_position():
 	return position

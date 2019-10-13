@@ -15,3 +15,7 @@ func _process(delta):
 		move(movment)
 	else:
 		print("no player")
+
+func bullet_hit(bullet):
+	.bullet_hit(bullet)
+	take_damage(bullet.DAMAGE)
