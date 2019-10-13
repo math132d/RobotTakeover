@@ -42,16 +42,9 @@ func _physics_process(delta):
 		
 	accl_vec *= 0
 	
-	#Flip the sprite if facing right
-	if facing == RIGHT:
-		$Character.set_flip_h(true)
-	if facing == LEFT:
-		$Character.set_flip_h(false)
-	
 	#Travels to the appropriate animation in the statemachine
 	if move_vec.length() <= (DEFAULT_FRICTION*delta):
 		#Considers the character stationary
-
 		match facing:
 			UP:
 				statemachine.travel("IdleUp")
@@ -68,6 +61,12 @@ func _physics_process(delta):
 				statemachine.travel("WalkDown")
 			LEFT, RIGHT:
 				statemachine.travel("WalkSide")
+				
+	#Flip the sprite if facing right
+	if facing == RIGHT:
+		$Character.set_flip_h(true)
+	if facing == LEFT:
+		$Character.set_flip_h(false)
 
 	pass #END OF PHYSICS PROCESS
 
@@ -90,23 +89,15 @@ func direction_to_facing(vector:Vector2):
 	return facing
 
 func move(direction:Vector2):
-	
 	accl_vec = direction.normalized()
 	
-	if move_vec.normalized() != Vector2(0,0):
-		self.facing = direction_to_facing(move_vec.normalized())
-	pass
-	
 func bullet_hit(body):
-	
 	body.do_collision()
 	$Character/AnimationPlayer.play("Damaged")
 	
 	pass
 	
-func attack(direction):
-	
-	
+func attack(direction:Vector2):
 	self.facing = direction_to_facing(direction.normalized())
 	
 	match facing:

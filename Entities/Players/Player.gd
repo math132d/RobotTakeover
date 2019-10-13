@@ -26,13 +26,19 @@ func _process(delta):
 	
 	if movement.length() > 0:
 		move(movement)
+		
+func attack(direction:Vector2):
+	.attack(direction)
+	
+	var BulletDisplacment
+	BulletDisplacment = Vector2(0,-20)+direction.normalized()*30 #moves the bulletposistion so not to hit self
+	WEAPON.fire(direction,(get_position()+BulletDisplacment))
+	
 
 func _input(event):
 	if event is InputEventMouseButton:
-		var BulletDisplacment
-		BulletDisplacment = Vector2(0,-20)+FacingVec.normalized()*30 #moves the bulletposistion so not to hit self
-		WEAPON.fire(FacingVec,(get_position()+BulletDisplacment))
-		
+		if event.button_index == BUTTON_LEFT && event.pressed == true:
+			attack(FacingVec)
 
 func _physics_process(delta):
 	FacingVec = get_viewport().get_mouse_position()-get_position()
