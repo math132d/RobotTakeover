@@ -6,11 +6,6 @@
 [ext_resource path="res://Entities/Robots/Robot.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Level/Room.tscn" type="PackedScene" id=5]
 
-
-
-
-
-
 [sub_resource type="CanvasItemMaterial" id=1]
 
 [node name="Level" type="Node2D"]
@@ -33,10 +28,9 @@ position = Vector2( 469.569, 390.985 )
 [node name="AgressiveGuy" parent="YSort" instance=ExtResource( 3 )]
 material = SubResource( 1 )
 position = Vector2( 563.65, 393.443 )
-DEFAULT_ACCL_SPEED = 800
-DEFAULT_MAX_SPEED = 200
 
 [node name="Robot" parent="YSort" instance=ExtResource( 4 )]
 
 [node name="Room" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 577.709, 310.055 )
+

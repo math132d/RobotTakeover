@@ -5,8 +5,6 @@
 [ext_resource path="res://Assets/Shaders/DirectionalBlur.shader" type="Shader" id=3]
 [ext_resource path="res://Assets/textures/spritesheet_max.png" type="Texture" id=4]
 
-
-
 [sub_resource type="CanvasItemMaterial" id=1]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -18,8 +16,6 @@ height = 36.1492
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 3 )
-shader_param/angle_degrees = null
-shader_param/strength = 0.0
 
 [sub_resource type="Animation" id=5]
 length = 0.4
@@ -322,7 +318,7 @@ animation = "WalkSide"
 [sub_resource type="AnimationNodeAnimation" id=28]
 animation = "WalkUp"
 
-[sub_resource type="AnimationNodeAnimation" id=57]
+[sub_resource type="AnimationNodeAnimation" id=29]
 animation = "down->side"
 
 [sub_resource type="AnimationNodeAnimation" id=30]
@@ -370,6 +366,14 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id=46]
 switch_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=47]
+switch_mode = 2
+priority = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=48]
+switch_mode = 2
+auto_advance = true
+
 [sub_resource type="AnimationNodeStateMachineTransition" id=49]
 switch_mode = 2
 priority = 2
@@ -394,14 +398,6 @@ priority = 2
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=58]
-switch_mode = 2
-priority = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=59]
-switch_mode = 2
-auto_advance = true
-
 [sub_resource type="AnimationNodeStateMachine" id=55]
 states/AttackDown/node = SubResource( 19 )
 states/AttackDown/position = Vector2( 589, 350 )
@@ -423,13 +419,13 @@ states/WalkSide/node = SubResource( 27 )
 states/WalkSide/position = Vector2( 811, 240 )
 states/WalkUp/node = SubResource( 28 )
 states/WalkUp/position = Vector2( 765, -3 )
-"states/down->side 2/node" = SubResource( 57 )
+"states/down->side 2/node" = SubResource( 29 )
 "states/down->side 2/position" = Vector2( 160, 337 )
 states/side->up/node = SubResource( 30 )
 states/side->up/position = Vector2( 216, 117 )
 states/up->side/node = SubResource( 31 )
 states/up->side/position = Vector2( 351, 117 )
-transitions = [ "WalkSide", "AttackSide", SubResource( 32 ), "IdleDown", "WalkDown", SubResource( 33 ), "WalkDown", "IdleDown", SubResource( 34 ), "IdleSide", "WalkSide", SubResource( 35 ), "WalkSide", "IdleSide", SubResource( 36 ), "IdleUp", "WalkUp", SubResource( 37 ), "WalkUp", "IdleUp", SubResource( 38 ), "WalkUp", "AttackUp", SubResource( 39 ), "AttackSide", "IdleSide", SubResource( 40 ), "AttackUp", "IdleUp", SubResource( 41 ), "AttackDown", "IdleDown", SubResource( 42 ), "WalkDown", "AttackDown", SubResource( 43 ), "IdleUp", "AttackUp", SubResource( 44 ), "IdleDown", "AttackDown", SubResource( 45 ), "IdleSide", "AttackSide", SubResource( 46 ), "IdleSide", "Side->down", SubResource( 49 ), "Side->down", "IdleDown", SubResource( 50 ), "IdleSide", "side->up", SubResource( 51 ), "side->up", "IdleUp", SubResource( 52 ), "IdleUp", "up->side", SubResource( 53 ), "up->side", "IdleSide", SubResource( 54 ), "IdleDown", "down->side 2", SubResource( 58 ), "down->side 2", "IdleSide", SubResource( 59 ) ]
+transitions = [ "WalkSide", "AttackSide", SubResource( 32 ), "IdleDown", "WalkDown", SubResource( 33 ), "WalkDown", "IdleDown", SubResource( 34 ), "IdleSide", "WalkSide", SubResource( 35 ), "WalkSide", "IdleSide", SubResource( 36 ), "IdleUp", "WalkUp", SubResource( 37 ), "WalkUp", "IdleUp", SubResource( 38 ), "WalkUp", "AttackUp", SubResource( 39 ), "AttackSide", "IdleSide", SubResource( 40 ), "AttackUp", "IdleUp", SubResource( 41 ), "AttackDown", "IdleDown", SubResource( 42 ), "WalkDown", "AttackDown", SubResource( 43 ), "IdleUp", "AttackUp", SubResource( 44 ), "IdleDown", "AttackDown", SubResource( 45 ), "IdleSide", "AttackSide", SubResource( 46 ), "IdleSide", "Side->down", SubResource( 47 ), "Side->down", "IdleDown", SubResource( 48 ), "IdleSide", "side->up", SubResource( 49 ), "side->up", "IdleUp", SubResource( 50 ), "IdleUp", "up->side", SubResource( 51 ), "up->side", "IdleSide", SubResource( 52 ), "IdleDown", "down->side 2", SubResource( 53 ), "down->side 2", "IdleSide", SubResource( 54 ) ]
 start_node = "IdleDown"
 graph_offset = Vector2( -23, 10.058 )
 
@@ -495,4 +491,5 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 process_mode = 0
 parameters/playback = SubResource( 56 )
+
 [connection signal="body_entered" from="BulletDetecetor" to="." method="_on_BulletDetecetor_entered"]
