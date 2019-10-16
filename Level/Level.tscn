@@ -33,4 +33,3 @@ position = Vector2( 563.65, 393.443 )
 
 [node name="Room" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 577.709, 310.055 )
-

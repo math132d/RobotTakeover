@@ -306,14 +306,22 @@ animation = "IdleSide"
 [sub_resource type="AnimationNodeAnimation" id=24]
 animation = "IdleUp"
 
-[sub_resource type="AnimationNodeAnimation" id=26]
+[sub_resource type="AnimationNodeAnimation" id=25]
 animation = "WalkDown"
 
-[sub_resource type="AnimationNodeAnimation" id=27]
+[sub_resource type="AnimationNodeAnimation" id=26]
 animation = "WalkSide"
 
-[sub_resource type="AnimationNodeAnimation" id=28]
+[sub_resource type="AnimationNodeAnimation" id=27]
 animation = "WalkUp"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=29]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=32]
 
@@ -324,45 +332,37 @@ animation = "WalkUp"
 [sub_resource type="AnimationNodeStateMachineTransition" id=35]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=36]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=37]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=38]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=39]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=40]
 switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=41]
 switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=42]
 switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=43]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=44]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=45]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=46]
-switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=57]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=58]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=59]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=60]
-
-[sub_resource type="AnimationNodeStateMachine" id=55]
+[sub_resource type="AnimationNodeStateMachine" id=47]
 states/AttackDown/node = SubResource( 19 )
 states/AttackDown/position = Vector2( 589, 350 )
 states/AttackSide/node = SubResource( 20 )
@@ -375,17 +375,17 @@ states/IdleSide/node = SubResource( 23 )
 states/IdleSide/position = Vector2( 284, 240 )
 states/IdleUp/node = SubResource( 24 )
 states/IdleUp/position = Vector2( 284, -3 )
-states/WalkDown/node = SubResource( 26 )
+states/WalkDown/node = SubResource( 25 )
 states/WalkDown/position = Vector2( 811, 456 )
-states/WalkSide/node = SubResource( 27 )
+states/WalkSide/node = SubResource( 26 )
 states/WalkSide/position = Vector2( 811, 240 )
-states/WalkUp/node = SubResource( 28 )
+states/WalkUp/node = SubResource( 27 )
 states/WalkUp/position = Vector2( 765, -3 )
-transitions = [ "WalkSide", "AttackSide", SubResource( 32 ), "IdleDown", "WalkDown", SubResource( 33 ), "WalkDown", "IdleDown", SubResource( 34 ), "IdleSide", "WalkSide", SubResource( 35 ), "WalkSide", "IdleSide", SubResource( 36 ), "IdleUp", "WalkUp", SubResource( 37 ), "WalkUp", "IdleUp", SubResource( 38 ), "WalkUp", "AttackUp", SubResource( 39 ), "AttackSide", "IdleSide", SubResource( 40 ), "AttackUp", "IdleUp", SubResource( 41 ), "AttackDown", "IdleDown", SubResource( 42 ), "WalkDown", "AttackDown", SubResource( 43 ), "IdleUp", "AttackUp", SubResource( 44 ), "IdleDown", "AttackDown", SubResource( 45 ), "IdleSide", "AttackSide", SubResource( 46 ), "IdleSide", "IdleDown", SubResource( 57 ), "IdleDown", "IdleSide", SubResource( 58 ), "IdleUp", "IdleSide", SubResource( 59 ), "IdleSide", "IdleUp", SubResource( 60 ) ]
+transitions = [ "WalkSide", "AttackSide", SubResource( 28 ), "IdleDown", "WalkDown", SubResource( 29 ), "WalkDown", "IdleDown", SubResource( 30 ), "IdleSide", "WalkSide", SubResource( 31 ), "WalkSide", "IdleSide", SubResource( 32 ), "IdleUp", "WalkUp", SubResource( 33 ), "WalkUp", "IdleUp", SubResource( 34 ), "WalkUp", "AttackUp", SubResource( 35 ), "AttackSide", "IdleSide", SubResource( 36 ), "AttackUp", "IdleUp", SubResource( 37 ), "AttackDown", "IdleDown", SubResource( 38 ), "WalkDown", "AttackDown", SubResource( 39 ), "IdleUp", "AttackUp", SubResource( 40 ), "IdleDown", "AttackDown", SubResource( 41 ), "IdleSide", "AttackSide", SubResource( 42 ), "IdleSide", "IdleDown", SubResource( 43 ), "IdleDown", "IdleSide", SubResource( 44 ), "IdleUp", "IdleSide", SubResource( 45 ), "IdleSide", "IdleUp", SubResource( 46 ) ]
 start_node = "IdleDown"
 graph_offset = Vector2( -126, 69.058 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=56]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=48]
 
 [node name="Character" type="KinematicBody2D"]
 material = SubResource( 1 )
@@ -441,10 +441,9 @@ anims/side->up = SubResource( 17 )
 anims/up->side = SubResource( 18 )
 
 [node name="AnimationTree" type="AnimationTree" parent="Character"]
-tree_root = SubResource( 55 )
+tree_root = SubResource( 47 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 process_mode = 0
-parameters/playback = SubResource( 56 )
-
+parameters/playback = SubResource( 48 )
 [connection signal="body_entered" from="BulletDetecetor" to="." method="_on_BulletDetecetor_entered"]

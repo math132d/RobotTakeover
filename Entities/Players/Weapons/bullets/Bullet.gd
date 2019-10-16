@@ -20,5 +20,4 @@ func _process(delta):
 
 func do_collision():
 	queue_free()
-	print("ow")
 	pass
