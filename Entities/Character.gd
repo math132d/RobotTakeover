@@ -109,8 +109,12 @@ func attack(direction:Vector2):
 func take_damage(damage:int):
 	self.health -= damage
 	$Character/AnimationPlayer.play("Damaged")
+	update_healthbar()
 	if(health <= 0):
 		on_death()
+
+func update_healthbar():
+	pass
 
 func on_death():
 	queue_free()

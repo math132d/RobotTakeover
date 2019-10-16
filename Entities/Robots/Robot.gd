@@ -19,3 +19,8 @@ func _process(delta):
 func bullet_hit(bullet):
 	.bullet_hit(bullet)
 	take_damage(bullet.DAMAGE)
+
+func update_healthbar():
+	var Procent_Health = (float(self.DEFAULT_HEALTH)-float(self.health))/100
+	$Health/Health.scale = Vector2 (1-Procent_Health,1)
+	print(Procent_Health)

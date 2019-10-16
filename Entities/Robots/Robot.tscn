@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Entities/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Robots/Robot.gd" type="Script" id=2]
 [ext_resource path="res://Assets/textures/Light Robot sprite.png" type="Texture" id=3]
+[ext_resource path="res://Assets/textures/HealthBar.png" type="Texture" id=4]
+[ext_resource path="res://Assets/textures/HealthBar(FULL).png" type="Texture" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.50629
@@ -11,19 +13,33 @@ height = 31.5379
 [sub_resource type="AnimationNodeStateMachinePlayback" id=2]
 
 [node name="Robot" instance=ExtResource( 1 )]
-position = Vector2( 157.37, 164.269 )
+position = Vector2( 157.536, 173.404 )
 script = ExtResource( 2 )
 DEFAULT_ACCL_SPEED = 60
 DEFAULT_FRICTION = 20.0
 DEFAULT_MAX_SPEED = 60
+
+[node name="BulletDetecetor" parent="." index="1"]
+editor/display_folded = true
 
 [node name="Hitbox" parent="BulletDetecetor" index="0"]
 position = Vector2( -1.08, -21.103 )
 shape = SubResource( 1 )
 
 [node name="Character" parent="." index="4"]
+editor/display_folded = true
 texture = ExtResource( 3 )
 vframes = 3
 
 [node name="AnimationTree" parent="Character" index="1"]
 parameters/playback = SubResource( 2 )
+
+[node name="Health" type="Node2D" parent="." index="5"]
+
+[node name="HealthBar" type="Sprite" parent="Health" index="0"]
+position = Vector2( 0, -45 )
+texture = ExtResource( 4 )
+
+[node name="Health" type="Sprite" parent="Health" index="1"]
+position = Vector2( 0, -45 )
+texture = ExtResource( 5 )
