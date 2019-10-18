@@ -12,7 +12,7 @@ height = 31.5379
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=2]
 
-[node name="Robot" instance=ExtResource( 1 )]
+[node name="Robot" index="0" instance=ExtResource( 1 )]
 position = Vector2( 157.536, 173.404 )
 script = ExtResource( 2 )
 DEFAULT_ACCL_SPEED = 60
@@ -41,5 +41,7 @@ position = Vector2( 0, -45 )
 texture = ExtResource( 4 )
 
 [node name="Health" type="Sprite" parent="Health" index="1"]
-position = Vector2( 0, -45 )
+position = Vector2( -16, -45 )
 texture = ExtResource( 5 )
+offset = Vector2( 16, 0 )
+
