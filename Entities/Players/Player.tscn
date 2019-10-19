@@ -1,19 +1,39 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Entities/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Players/Player.gd" type="Script" id=2]
+[ext_resource path="res://Assets/textures/HUD.png" type="Texture" id=3]
+[ext_resource path="res://Assets/textures/Health.png" type="Texture" id=4]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
 [node name="Player" instance=ExtResource( 1 )]
-position = Vector2( 78.211, 207.287 )
+position = Vector2( 0, 0 )
 script = ExtResource( 2 )
 DEFAULT_FRICTION = 700.0
 
 [node name="Character" parent="." index="4"]
 material = null
-frame = 0
 
 [node name="AnimationTree" parent="Character" index="1"]
 parameters/playback = SubResource( 1 )
 
+[node name="Camera2D" type="Camera2D" parent="." index="5"]
+current = true
+zoom = Vector2( 0.33, 0.33 )
+
+[node name="HUD" type="CanvasLayer" parent="." index="6"]
+
+[node name="Background" type="Sprite" parent="HUD" index="0"]
+position = Vector2( 0.881355, 725.432 )
+scale = Vector2( 2.48414, 2.48414 )
+texture = ExtResource( 3 )
+offset = Vector2( 256, -144 )
+
+[node name="Health" type="Sprite" parent="HUD" index="1"]
+position = Vector2( 2.37006, 724.897 )
+scale = Vector2( 2.4628, 2.4628 )
+texture = ExtResource( 4 )
+offset = Vector2( 74.4523, -23.7239 )
+region_enabled = true
+region_rect = Rect2( 0.739, 0, 147, 49 )

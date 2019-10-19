@@ -29,7 +29,7 @@ func _process(delta):
 		move(movement)
 
 func _physics_process(delta):
-	FacingVec = get_viewport().get_mouse_position()-get_position()
+	FacingVec = get_viewport().get_mouse_position()-get_global_transform_with_canvas().origin
 	facing = direction_to_facing(FacingVec.normalized())
 
 func _input(event):
@@ -40,6 +40,14 @@ func _input(event):
 func bullet_hit(bullet):
 	.bullet_hit(bullet)
 	take_damage(bullet.DAMAGE)
+
+func update_healthbar():
+	var HealtProcent = 1-(float(self.DEFAULT_HEALTH)-float(self.health))/100
+	var Hlen = 147*HealtProcent
+	print($HUD/Health.region_rect)
+	print(health)
+	$HUD/Health.region_rect = Rect2(0.739,0,Hlen,49)
+	$HUD/Health.position = Vector2(-(2/Hlen) + 2.37,724.897)
 
 func attack(direction:Vector2):
 	if active_weapon.can_fire(): #Only play animations etc. when the weapon can fire.

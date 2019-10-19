@@ -28,6 +28,8 @@ position = Vector2( 469.569, 390.985 )
 [node name="AgressiveGuy" parent="YSort" instance=ExtResource( 3 )]
 material = SubResource( 1 )
 position = Vector2( 563.65, 393.443 )
+DEFAULT_ACCL_SPEED = 800
+DEFAULT_MAX_SPEED = 200
 
 [node name="Robot" parent="YSort" instance=ExtResource( 4 )]
 
