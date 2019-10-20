@@ -402,6 +402,7 @@ DEFAULT_MAX_SPEED = 200
 shape = SubResource( 2 )
 
 [node name="BulletDetecetor" type="Area2D" parent="."]
+editor/display_folded = true
 collision_layer = 2
 collision_mask = 2
 
@@ -416,6 +417,7 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 
 [node name="Character" type="Sprite" parent="."]
+editor/display_folded = true
 material = SubResource( 4 )
 texture = ExtResource( 4 )
 centered = false
@@ -446,4 +448,5 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 process_mode = 0
 parameters/playback = SubResource( 48 )
+
 [connection signal="body_entered" from="BulletDetecetor" to="." method="_on_BulletDetecetor_entered"]

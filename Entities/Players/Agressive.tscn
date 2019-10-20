@@ -13,3 +13,4 @@ FIRE_SPEED = 4
 
 [node name="AnimationTree" parent="Character" index="1"]
 parameters/playback = SubResource( 1 )
+
