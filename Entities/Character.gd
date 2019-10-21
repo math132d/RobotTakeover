@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal item_drop(item_scene, pos)
+
 enum {UP, DOWN, LEFT, RIGHT}
 
 #Export all "default values" not to be modified during runtime
@@ -117,6 +119,10 @@ func update_healthbar():
 	pass
 
 func on_death():
+	for item in $Inventory.get_children():
+		var drop = PackedScene.new()
+		drop.pack(item)
+		emit_signal("item_drop", drop, position)
 	queue_free()
 
 #gets the position so it can be used by other nodes

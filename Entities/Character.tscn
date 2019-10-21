@@ -410,8 +410,6 @@ collision_mask = 2
 position = Vector2( 0.142403, -18.3074 )
 shape = SubResource( 3 )
 
-[node name="Weapons" type="Node" parent="."]
-
 [node name="Shadow" type="Sprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
@@ -448,5 +446,9 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 process_mode = 0
 parameters/playback = SubResource( 48 )
+
+[node name="Weapons" type="Node" parent="."]
+
+[node name="Inventory" type="Node" parent="."]
 
 [connection signal="body_entered" from="BulletDetecetor" to="." method="_on_BulletDetecetor_entered"]
